@@ -324,7 +324,7 @@ const categoryNameByDbId=Object.fromEntries(categoryDbIds.map((id,i)=>[id,catego
 const grid=document.getElementById('categoryGrid');categories.forEach((c,i)=>{const el=document.createElement('div');el.className='category';el.innerHTML='<span class="num">'+String(i+1).padStart(2,'0')+'</span><span class="cat-name"></span><span class="category-arrow">↗</span>';el.querySelector('.cat-name').textContent=c;grid.appendChild(el)});
 let current=0,answers=Array(20).fill(''),activeCode='';
 function toast(t){let e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),3500)}
-async function startForm(){
+async async function startForm(){
  activeCode=document.getElementById('accessCode').value.trim();
  const wa=document.getElementById('whatsappName').value.trim();
  if(!activeCode){toast('Enter your access code first.');return}
