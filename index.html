@@ -279,8 +279,8 @@ header{background:rgba(10,20,16,.82);backdrop-filter:blur(18px);border-bottom-co
 <nav class="menu-panel" id="menuPanel" aria-hidden="true">
 <div class="menu-panel-head"><div><div class="menu-label">ARCANE NOMINEES · 2026</div><div class="menu-heading">The next<br><em>chapter.</em></div></div><button class="menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button></div>
 <div class="menu-destinations">
-<button class="menu-destination" onclick="closeMenu();navigatePage('home')"><span class="destination-index">01</span><span class="destination-copy"><b>The Circle</b><small>Meet the community behind ARCANE</small></span><span class="destination-arrow">↗</span></button>
-<button class="menu-destination" onclick="closeMenu();navigatePage('categories')"><span class="destination-index">02</span><span class="destination-copy"><b>Award Categories</b><small>Explore all twenty titles</small></span><span class="destination-arrow">↗</span></button>
+<button class="menu-destination" data-route="home"><span class="destination-index">01</span><span class="destination-copy"><b>The Circle</b><small>Meet the community behind ARCANE</small></span><span class="destination-arrow">↗</span></button>
+<button class="menu-destination" data-route="categories"><span class="destination-index">02</span><span class="destination-copy"><b>Award Categories</b><small>Explore all twenty titles</small></span><span class="destination-arrow">↗</span></button>
 <button class="menu-destination featured" data-route="access"><span class="destination-index">03</span><span class="destination-copy"><b>Enter Your Code</b><small>Continue to the nomination form</small></span><span class="destination-arrow">⟶</span></button>
 <button class="menu-destination" data-route="my-nominations"><span class="destination-index">04</span><span class="destination-copy"><b>Check Your Nominated List</b><small>View the names you submitted</small></span><span class="destination-arrow">↗</span></button>
 </div><div class="menu-footer"><span>ARCANE NOMINEES</span><span>EST. 2026</span></div></nav>
@@ -344,7 +344,7 @@ function showSavedReceipt(data){
  document.getElementById('done').style.display='block';
  document.getElementById('counter').textContent='SUBMISSION SAVED';
  document.querySelector('#done .hint').textContent='WhatsApp username: '+(data.whatsapp_username||'')+' · Submitted: '+new Date(data.submitted_at).toLocaleString();
- let list=(data.nominations||[]).sort((a,b)=>a.category_id-b.category_id);
+ let list=[...(data.nominations||[])].sort((a,b)=>categoryDbIds.indexOf(a.category_id)-categoryDbIds.indexOf(b.category_id));
  let old=document.getElementById('savedReceipt');
  if(!old){old=document.createElement('div');old.id='savedReceipt';old.className='review-list';document.getElementById('done').appendChild(old)}
  old.innerHTML=list.map(n=>'<div class="review-row"><span class="rnum">'+String(n.category_id).padStart(2,'0')+'</span><span class="rname"></span><span class="rvalue"></span></div>').join('');
