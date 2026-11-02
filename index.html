@@ -168,15 +168,48 @@ h1{font-weight:600;letter-spacing:-.055em;line-height:.78}
 .hero-copy,.section-head p,.process-intro,.access-copy{font-weight:400;letter-spacing:.012em}
 @media(max-width:600px){.hero:after{background:radial-gradient(circle,rgba(193,199,209,.14),rgba(163,151,157,.05) 43%,transparent 71%)}}
 
+
+/* Compact quick-navigation menu */
+.header-right{display:flex;align-items:center;gap:28px}
+.menu-trigger{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.045);border:1px solid rgba(211,198,177,.3);border-radius:999px;padding:12px 17px;color:#e8e4df;font:10px 'DM Mono';letter-spacing:.17em;transition:.25s}
+.menu-trigger:hover{border-color:#d1c3aa;box-shadow:0 0 22px rgba(201,185,155,.12)}
+.menu-icon{display:grid;gap:5px}.menu-icon i{display:block;width:17px;height:1px;background:#d1c3aa;transition:.2s}.menu-icon i:last-child{width:11px;margin-left:6px}
+.menu-backdrop{position:fixed;inset:0;background:rgba(5,6,9,.65);backdrop-filter:blur(7px);z-index:19;opacity:0;visibility:hidden;transition:.3s}
+.menu-panel{position:fixed;z-index:20;right:0;top:0;height:100dvh;width:min(460px,92vw);overflow-y:auto;background:linear-gradient(155deg,#292c32,#1b1e23 55%,#17191d);border-left:1px solid rgba(211,198,177,.25);padding:30px 30px 35px;transform:translateX(105%);transition:transform .38s cubic-bezier(.2,.8,.2,1);box-shadow:-25px 0 80px rgba(0,0,0,.35)}
+body.menu-open .menu-backdrop{opacity:1;visibility:visible}body.menu-open .menu-panel{transform:translateX(0)}body.menu-open{overflow:hidden}
+.menu-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:35px}.menu-label{font:9px 'DM Mono';letter-spacing:.2em;color:#c9b99b}
+.menu-close{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);color:#f3f1ee;border-radius:50%;width:38px;height:38px;font-size:15px}
+.menu-panel>a{display:flex;align-items:center;gap:18px;padding:17px 2px;border-bottom:1px solid rgba(255,255,255,.1);font:600 21px 'Cormorant Garamond',serif;color:#f1eeea;text-decoration:none;transition:.2s}
+.menu-panel>a span{font:10px 'DM Mono';color:#c9b99b}.menu-panel>a b{margin-left:auto;color:#a6a0a4;font:15px Manrope}.menu-panel>a:hover{color:#d8c8ce;padding-left:8px}
+.menu-divider{height:1px;background:rgba(255,255,255,.12);margin:28px 0 22px}
+.menu-categories{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin:12px 0 25px}
+.menu-categories a{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.075);text-decoration:none;color:#c9c7c6;font-size:11px;line-height:1.5}
+.menu-categories a span{font:9px 'DM Mono';color:#c9b99b;margin-right:8px}
+.menu-categories a:hover{color:#fff}
+.menu-start{width:100%;margin-top:8px}
+@media(max-width:600px){header{padding:0 5vw}.header-right{gap:0}.header-right .edition{display:none}.menu-trigger{padding:11px 14px}.menu-panel{padding:25px 23px 32px}.menu-panel>a{font-size:20px}}
+
 </style>
 </head>
 <body><div class="topbar"></div>
-<header><div class="brand">ARCANE <i>✳</i> NOMINEES</div><div class="edition">OFFICIAL NOMINATION PORTAL · 2026</div></header>
+<header><div class="brand">ARCANE <i>✳</i> NOMINEES</div><div class="header-right"><div class="edition">OFFICIAL NOMINATION PORTAL · 2026</div><button class="menu-trigger" id="menuTrigger" aria-label="Open navigation menu" onclick="toggleMenu()">MENU <span class="menu-icon"><i></i><i></i></span></button></div></header>
+<div class="menu-backdrop" id="menuBackdrop" onclick="closeMenu()"></div>
+<nav class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-panel-head"><span class="menu-label">QUICK NAVIGATION</span><button class="menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button></div>
+  <a href="#home" onclick="closeMenu()"><span>01</span> Home <b>↗</b></a>
+  <a href="#categories" onclick="closeMenu()"><span>02</span> Award categories <b>↗</b></a>
+  <a href="#process" onclick="closeMenu()"><span>03</span> How it works <b>↗</b></a>
+  <a href="#access" onclick="closeMenu()"><span>04</span> Enter nominations <b>↗</b></a>
+  <div class="menu-divider"></div>
+  <div class="menu-label">JUMP TO A CATEGORY</div>
+  <div class="menu-categories" id="menuCategories"></div>
+  <button class="btn primary menu-start" onclick="closeMenu();document.querySelector('#access').scrollIntoView({behavior:'smooth'})">START NOMINATING ↗</button>
+</nav>
 <main id="home">
 <section class="hero"><div class="hero-content"><div class="eyebrow">The people make the story</div><h1>Not just names.<br><em>Legends.</em></h1><p class="hero-copy">Every group has its icons, its chaos-makers, its quiet legends and unforgettable characters. It's time to give those moments a name. Welcome to the official ARCANE NOMINEES 2026.</p><div class="hero-meta"><button class="btn primary" onclick="document.querySelector('#access').scrollIntoView({behavior:'smooth'})">Begin nominations&nbsp; ↗</button><button class="text-link" onclick="document.querySelector('#categories').scrollIntoView({behavior:'smooth'})">View the categories ↓</button></div></div><div class="hero-stamp"><img class="stamp-image" src="https://raw.githubusercontent.com/mimfx/arcane-nominees/main/IMG-20261102-WA0074.jpg" alt="ARCANE community group emblem"><div class="stamp-caption">THE ARCANE CIRCLE · 2026</div></div><div class="vertical-note">A CELEBRATION OF THE UNFORGETTABLE · 2026</div></section>
 <div class="marquee"><span>✳ ARCANE NOMINEES 2026　　✳ THE PEOPLE　　✳ THE PERSONALITIES　　✳ THE MOMENTS　　✳ THE PEOPLE　　✳ THE PERSONALITIES　　✳ THE MOMENTS　　✳ ARCANE NOMINEES 2026　　✳ THE PEOPLE　　✳ THE PERSONALITIES　　✳ THE MOMENTS　　</span></div>
 <section class="section" id="categories"><div class="section-head"><div><div class="eyebrow">The official categories</div><h2>16 titles.<br>Countless personalities.</h2></div><p>Take a look at the categories before you nominate. Each title gets one name. Choose the person who truly owns the moment.</p></div><div class="category-grid" id="categoryGrid"></div></section>
-<section class="process"><div class="process-head"><div class="eyebrow">The nomination process</div><h2>Simple. Personal.<br>Official.</h2><p class="process-intro">No public voting. No popularity scoreboard. Just nominations submitted through a private access code and reviewed before they're sent.</p></div><div class="steps"><div class="step"><b>01 — UNLOCK</b><h3>Enter your code</h3><p>Use the unique access code shared with you to open the nomination form.</p></div><div class="step"><b>02 — NOMINATE</b><h3>Put names forward</h3><p>Give one name for each of the sixteen official categories.</p></div><div class="step"><b>03 — DOUBLE-CHECK</b><h3>Review your choices</h3><p>Go through every entry and make edits before final submission.</p></div><div class="step"><b>04 — CONFIRM</b><h3>Send it in</h3><p>Submit your nominations. Your identity will not appear publicly.</p></div></div></section>
+<section class="process" id="process"><div class="process-head"><div class="eyebrow">The nomination process</div><h2>Simple. Personal.<br>Official.</h2><p class="process-intro">No public voting. No popularity scoreboard. Just nominations submitted through a private access code and reviewed before they're sent.</p></div><div class="steps"><div class="step"><b>01 — UNLOCK</b><h3>Enter your code</h3><p>Use the unique access code shared with you to open the nomination form.</p></div><div class="step"><b>02 — NOMINATE</b><h3>Put names forward</h3><p>Give one name for each of the sixteen official categories.</p></div><div class="step"><b>03 — DOUBLE-CHECK</b><h3>Review your choices</h3><p>Go through every entry and make edits before final submission.</p></div><div class="step"><b>04 — CONFIRM</b><h3>Send it in</h3><p>Submit your nominations. Your identity will not appear publicly.</p></div></div></section>
 <section class="access" id="access"><div><div class="eyebrow">Your invitation starts here</div><h2>Who deserves<br>the title?</h2><p class="access-copy">Your nominations help define the people and moments that made this year unforgettable. Enter your access code to begin.</p></div><div><div class="code-area"><label for="accessCode">NOMINATION ACCESS CODE</label><input id="accessCode" placeholder="ENTER YOUR CODE" autocomplete="off" spellcheck="false"></div><button class="btn primary access-action" onclick="startForm()">Unlock nomination form&nbsp; ↗</button><p class="small-note">Access codes are designed for one-time use. Keep yours private. If you need a code or have trouble accessing the form, contact the event administrator.</p></div></section>
 </main>
 <section class="form-section" id="form"><div class="form-top"><div class="brand">ARCANE <i>✳</i> NOMINEES</div><div class="counter" id="counter">CATEGORY 01 / 16</div></div><div class="progress"><span id="bar"></span></div>
@@ -195,4 +228,10 @@ function move(dir){const v=document.getElementById('nominee').value.trim();if(!v
 function showReview(){document.getElementById('question').style.display='none';document.getElementById('review').style.display='block';document.getElementById('counter').textContent='REVIEW / 16';document.getElementById('bar').style.width='100%';document.getElementById('reviewList').innerHTML=categories.map((c,i)=>'<div class="review-row"><span class="rnum">'+String(i+1).padStart(2,'0')+'</span><span class="rname"></span><span class="rvalue"></span></div>').join('');[...document.querySelectorAll('.review-row')].forEach((row,i)=>{row.querySelector('.rname').textContent=categories[i];row.querySelector('.rvalue').textContent=answers[i]})}
 function editLast(){current=15;showQuestion()}
 function submitNomination(){document.getElementById('review').style.display='none';document.getElementById('done').style.display='block';document.getElementById('counter').textContent='PREVIEW'}
+
+function toggleMenu(){document.body.classList.toggle('menu-open');const open=document.body.classList.contains('menu-open');document.getElementById('menuPanel').setAttribute('aria-hidden',String(!open));document.getElementById('menuTrigger').setAttribute('aria-expanded',String(open))}
+function closeMenu(){document.body.classList.remove('menu-open');document.getElementById('menuPanel').setAttribute('aria-hidden','true');document.getElementById('menuTrigger').setAttribute('aria-expanded','false')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+const menuCategories=document.getElementById('menuCategories');categories.forEach((name,i)=>{const a=document.createElement('a');a.href='#categories';a.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>';const label=document.createTextNode(name);a.appendChild(label);a.onclick=closeMenu;menuCategories.appendChild(a)});
+
 </script></body></html>
