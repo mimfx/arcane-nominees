@@ -254,7 +254,7 @@ function submitNomination(){document.getElementById('review').style.display='non
 function toggleMenu(){document.body.classList.toggle('menu-open');const open=document.body.classList.contains('menu-open');document.getElementById('menuPanel').setAttribute('aria-hidden',String(!open));document.getElementById('menuTrigger').setAttribute('aria-expanded',String(open))}
 function closeMenu(){document.body.classList.remove('menu-open');document.getElementById('menuPanel').setAttribute('aria-hidden','true');document.getElementById('menuTrigger').setAttribute('aria-expanded','false')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-const menuCategories=document.getElementById('menuCategories');categories.forEach((name,i)=>{const a=document.createElement('a');a.href='#categories';a.innerHTML='<span>'+String(i+1).padStart(2,'0')+'</span>';const label=document.createTextNode(name);a.appendChild(label);a.onclick=closeMenu;menuCategories.appendChild(a)});
+
 
 
 function navigatePage(name){document.querySelectorAll('.route-page').forEach(p=>p.classList.remove('active'));const page=document.getElementById('page-'+name);if(page)page.classList.add('active');document.getElementById('form').style.display='none';window.scrollTo({top:0,behavior:'instant'});history.replaceState(null,'','#'+name)}
