@@ -280,17 +280,26 @@ header{background:rgba(10,20,16,.82);backdrop-filter:blur(18px);border-bottom-co
 <div class="menu-panel-head"><div><div class="menu-label">ARCANE NOMINEES · 2026</div><div class="menu-heading">The next<br><em>chapter.</em></div></div><button class="menu-close" onclick="closeMenu()" aria-label="Close menu">✕</button></div>
 <div class="menu-destinations">
 <button class="menu-destination" onclick="closeMenu();navigatePage('home')"><span class="destination-index">01</span><span class="destination-copy"><b>The Circle</b><small>Meet the community behind ARCANE</small></span><span class="destination-arrow">↗</span></button>
-<button class="menu-destination" onclick="closeMenu();navigatePage('categories')"><span class="destination-index">02</span><span class="destination-copy"><b>Award Categories</b><small>Explore all sixteen titles</small></span><span class="destination-arrow">↗</span></button>
-<button class="menu-destination featured" onclick="closeMenu();navigatePage('access')"><span class="destination-index">03</span><span class="destination-copy"><b>Enter Your Code</b><small>Continue to the nomination form</small></span><span class="destination-arrow">⟶</span></button>
+<button class="menu-destination" onclick="closeMenu();navigatePage('categories')"><span class="destination-index">02</span><span class="destination-copy"><b>Award Categories</b><small>Explore all twenty titles</small></span><span class="destination-arrow">↗</span></button>
+<button class="menu-destination featured" data-route="access"><span class="destination-index">03</span><span class="destination-copy"><b>Enter Your Code</b><small>Continue to the nomination form</small></span><span class="destination-arrow">⟶</span></button>
+<button class="menu-destination" data-route="my-nominations"><span class="destination-index">04</span><span class="destination-copy"><b>Check Your Nominated List</b><small>View the names you submitted</small></span><span class="destination-arrow">↗</span></button>
 </div><div class="menu-footer"><span>ARCANE NOMINEES</span><span>EST. 2026</span></div></nav>
 <main id="home">
 <div class="route-page" id="page-categories"><div class="page-intro"><span class="page-tag">THE OFFICIAL LIST · 2026</span></div><div class="marquee"><span>✳ ARCANE NOMINEES 2026　　✳ THE PEOPLE　　✳ THE PERSONALITIES　　✳ THE MOMENTS　　✳ THE PEOPLE　　✳ THE PERSONALITIES　　✳ THE MOMENTS　　✳ ARCANE NOMINEES 2026　　✳ THE PEOPLE　　✳ THE PERSONALITIES　　✳ THE MOMENTS　　</span></div>
-<section class="section" id="categories"><div class="section-head"><div><div class="eyebrow">The official categories</div><h2>16 titles.<br>Countless personalities.</h2></div><p>Take a look at the categories before you nominate. Each title gets one name. Choose the person who truly owns the moment.</p></div><div class="category-grid" id="categoryGrid"></div></section>
+<section class="section" id="categories"><div class="section-head"><div><div class="eyebrow">The official categories</div><h2>20 titles.<br>Countless personalities.</h2></div><p>Take a look at the categories before you nominate. Each title gets one name. Choose the person who truly owns the moment.</p></div><div class="category-grid" id="categoryGrid"></div></section>
 </div>
-<div class="route-page" id="page-process"><div class="page-intro"><button class="back-home" onclick="navigatePage('home')">← BACK TO HOME</button><span class="page-tag">YOUR NOMINATION JOURNEY</span></div><section class="process" id="process"><div class="process-head"><div class="eyebrow">The nomination process</div><h2>Simple. Personal.<br>Official.</h2><p class="process-intro">No public voting. No popularity scoreboard. Just nominations submitted through a private access code and reviewed before they're sent.</p></div><div class="steps"><div class="step"><b>01 — UNLOCK</b><h3>Enter your code</h3><p>Use the unique access code shared with you to open the nomination form.</p></div><div class="step"><b>02 — NOMINATE</b><h3>Put names forward</h3><p>Give one name for each of the sixteen official categories.</p></div><div class="step"><b>03 — DOUBLE-CHECK</b><h3>Review your choices</h3><p>Go through every entry and make edits before final submission.</p></div><div class="step"><b>04 — CONFIRM</b><h3>Send it in</h3><p>Submit your nominations. Your identity will not appear publicly.</p></div></div></section>
+<div class="route-page" id="page-process"><div class="page-intro"><button class="back-home" onclick="navigatePage('home')">← BACK TO HOME</button><span class="page-tag">YOUR NOMINATION JOURNEY</span></div><section class="process" id="process"><div class="process-head"><div class="eyebrow">The nomination process</div><h2>Simple. Personal.<br>Official.</h2><p class="process-intro">No public voting. No popularity scoreboard. Just nominations submitted through a private access code and reviewed before they're sent.</p></div><div class="steps"><div class="step"><b>01 — UNLOCK</b><h3>Enter your code</h3><p>Use the unique access code shared with you to open the nomination form.</p></div><div class="step"><b>02 — NOMINATE</b><h3>Put names forward</h3><p>Give one name for each of the twenty official categories.</p></div><div class="step"><b>03 — DOUBLE-CHECK</b><h3>Review your choices</h3><p>Go through every entry and make edits before final submission.</p></div><div class="step"><b>04 — CONFIRM</b><h3>Send it in</h3><p>Submit your nominations. Your identity will not appear publicly.</p></div></div></section>
 </div>
 <div class="route-page" id="page-access"><div class="page-intro"><button class="back-home" onclick="navigatePage('home')">← BACK TO HOME</button><span class="page-tag">PRIVATE NOMINATION ACCESS</span></div><section class="access" id="access"><div><div class="eyebrow">Your invitation starts here</div><h2>Who deserves<br>the title?</h2><p class="access-copy">Your nominations help define the people and moments that made this year unforgettable. Enter your access code to begin.</p></div><div><div class="code-area"><label for="accessCode">NOMINATION ACCESS CODE</label><input id="accessCode" placeholder="ENTER YOUR CODE" autocomplete="off" spellcheck="false"></div><div id="identityStep" style="margin-top:24px"><div class="code-area"><label for="whatsappName">WHATSAPP USERNAME</label><input id="whatsappName" placeholder="Enter your WhatsApp username" maxlength="50" autocomplete="username"></div><button class="btn primary access-action" onclick="startForm()">CONTINUE ↗</button><p class="small-note">Your WhatsApp username is your nomination ID. Use the same username to return and view your saved nominations. One submission per username.</p></div></div></section>
 </div>
+<div class="route-page" id="page-my-nominations">
+<section class="access" style="padding-top:70px">
+<div class="eyebrow">YOUR ARCANE RECORD</div><h2>Check your<br><em>nominated list.</em></h2>
+<p class="access-copy">Enter the same WhatsApp username you used when submitting. Your saved nominations will appear here.</p>
+<div class="code-area"><label for="lookupUsername">WHATSAPP USERNAME</label><input id="lookupUsername" placeholder="Enter your WhatsApp username" maxlength="50" autocomplete="username"></div>
+<button class="btn primary access-action" id="lookupButton">VIEW MY NOMINATIONS ↗</button>
+<div id="lookupResult" style="margin-top:28px"></div>
+</section></div>
 <div class="route-page active" id="page-home"><section class="circle-page">
 <div class="circle-hero"><div class="circle-hero-copy"><div class="eyebrow">A COMMUNITY BUILT ON THE GAME · HELD TOGETHER BY THE PEOPLE</div><div class="circle-kicker">FORMERLY KNOWN AS ARENA</div><h2>One name.<br><em>Many stories.</em></h2><p>Free Fire brought us together. The squads, room cruises, late-night banter and familiar faces turned a group chat into a community. Different personalities, one place to call ours. This is ARCANE.</p><div class="circle-tags"><span>FREE FIRE</span><span>GAMING GC</span><span>GOOD CHAOS</span></div></div><div class="circle-portrait"><img class="stamp-image" src="https://raw.githubusercontent.com/mimfx/arcane-nominees/main/IMG-20261102-WA0074.jpg" alt="ARCANE group profile" loading="eager"><span>THE ARCANE CIRCLE</span><b>EST. 2026</b></div></div>
 <div class="circle-divider"><span>✳</span><i></i><span>✳</span></div><div class="circle-about-head"><div class="eyebrow">THE PEOPLE BEHIND THE PLAY</div><h3>More than a game.<br><em>A place to belong.</em></h3><p>From the first squad invite to the jokes that never get old, ARCANE is made by the people who show up and make every session memorable.</p></div>
@@ -350,7 +359,58 @@ async function submitNomination(){let btn=document.querySelector('#review .btn')
 function toggleMenu(){document.body.classList.toggle('menu-open');let o=document.body.classList.contains('menu-open');document.getElementById('menuPanel').setAttribute('aria-hidden',String(!o));document.getElementById('menuTrigger').setAttribute('aria-expanded',String(o))}
 function closeMenu(){document.body.classList.remove('menu-open');document.getElementById('menuPanel').setAttribute('aria-hidden','true');document.getElementById('menuTrigger').setAttribute('aria-expanded','false')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
-function navigatePage(n){if(n==='circle')n='home';document.querySelectorAll('.route-page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+n)?.classList.add('active');document.getElementById('form').style.display='none';document.getElementById('adminPortal').style.display='none';window.scrollTo({top:0,behavior:'instant'});history.replaceState(null,'','#'+n)}
+
+// Reliable menu routing: handle taps directly rather than relying on inline handlers.
+document.addEventListener('click',function(e){
+ const item=e.target.closest('[data-route]');
+ if(!item)return;
+ e.preventDefault();
+ const route=item.getAttribute('data-route');
+ closeMenu();
+ navigatePage(route);
+});
+document.addEventListener('DOMContentLoaded',function(){
+ const lookup=document.getElementById('lookupButton');
+ if(lookup)lookup.addEventListener('click',lookupMyNominations);
+});
+async function lookupMyNominations(){
+ const username=document.getElementById('lookupUsername').value.trim();
+ const box=document.getElementById('lookupResult');
+ if(username.length<2){toast('Enter your WhatsApp username.');return}
+ box.textContent='Looking up your saved nominations…';
+ const result=await sb.rpc('arcane_get_submission_by_username',{p_whatsapp_username:username});
+ if(result.error){box.textContent='Could not load your nominations: '+result.error.message;return}
+ if(!result.data){box.textContent='No submission found for that username yet.';return}
+ renderNominationReceipt(result.data,'lookupResult');
+}
+function renderNominationReceipt(data,targetId){
+ const box=document.getElementById(targetId);
+ const items=[...(data.nominations||[])].sort((a,b)=>categoryDbIds.indexOf(a.category_id)-categoryDbIds.indexOf(b.category_id));
+ box.innerHTML='';
+ const meta=document.createElement('p');
+ meta.className='small-note';
+ meta.textContent='@'+data.whatsapp_username+' · Submitted '+new Date(data.submitted_at).toLocaleString();
+ box.appendChild(meta);
+ const list=document.createElement('div');list.className='review-list';
+ items.forEach((n,i)=>{
+  const row=document.createElement('div');row.className='review-row';
+  const num=document.createElement('span');num.className='rnum';num.textContent=String(i+1).padStart(2,'0');
+  const name=document.createElement('span');name.className='rname';name.textContent=categoryNameByDbId[n.category_id]||('Category '+n.category_id);
+  const nominee=document.createElement('span');nominee.className='rvalue';nominee.textContent=n.nominee_name;
+  row.append(num,name,nominee);list.appendChild(row);
+ });
+ box.appendChild(list);
+}
+
+function navigatePage(n){
+ if(n==='circle')n='home';
+ document.querySelectorAll('.route-page').forEach(p=>p.classList.remove('active'));
+ const page=document.getElementById('page-'+n);
+ if(page)page.classList.add('active');else{toast('That page is unavailable.');return}
+ const form=document.getElementById('form');if(form)form.style.display='none';
+ const admin=document.getElementById('adminPortal');if(admin)admin.style.display='none';
+ window.scrollTo({top:0,behavior:'instant'});history.replaceState(null,'','#'+n);
+}
 function openAdmin(){closeMenu();document.querySelectorAll('.route-page').forEach(p=>p.classList.remove('active'));document.getElementById('form').style.display='none';document.getElementById('adminPortal').style.display='block';window.scrollTo(0,0);checkAdminSession()}
 async function adminSignUp(){let email=document.getElementById('adminEmail').value.trim(),password=document.getElementById('adminPassword').value;if(email.toLowerCase()!=='miracleshola2255@gmail.com'){toast('Admin email not authorized.');return}let r=await sb.auth.signUp({email,password});toast(r.error?.message||'Account created. Confirm your email, then sign in.')}
 async function adminSignIn(){let r=await sb.auth.signInWithPassword({email:document.getElementById('adminEmail').value.trim(),password:document.getElementById('adminPassword').value});if(r.error){toast(r.error.message);return}checkAdminSession()}
